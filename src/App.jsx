@@ -4,7 +4,9 @@ import Header from "./components/Header";
 import CreateAccount from "./components/CreateAccount";
 import Login from "./components/Login";
 import About from "./components/About";
+import NewInStore from "./components/NewInStore";
 import AimSection from "./components/AimSection";
+import AllProducts from "./components/AllProducts";
 
 function App() {
   return (
@@ -24,6 +26,12 @@ function App() {
 
         {/*Aim Section page*/}
         <Route path="/" element={<AimSection />} />
+
+        {/*New In Store page*/}
+        <Route path="/" element={<NewInStore />} />
+
+        {/*All Products page*/}
+        <Route path="/" element={<AllProducts />} />
 
       </Routes>
 

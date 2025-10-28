@@ -3,7 +3,7 @@ import React from 'react';
 const  About = () => {
 
   return (
-    <section id="about-section" className="flex flex-col md:flex-row items-center justify-center gap-10 py-16 px-6 bg-pink-50">
+    <section id="about-section" className="flex flex-col md:flex-row items-center justify-center gap- py-16 px-6 bg-pink-50">
       {/* Left: Image */}
       <div className="w-full md:w-1/2 flex justify-center">
         <img
