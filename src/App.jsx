@@ -7,6 +7,7 @@ import About from "./components/About";
 import NewInStore from "./components/NewInStore";
 import AimSection from "./components/AimSection";
 import AllProducts from "./components/AllProducts";
+import Testimonials from "./components/Testimonials";
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
 
         {/*All Products page*/}
         <Route path="/" element={<AllProducts />} />
+
+        {/*Testimonials page*/}
+        <Route path="/" element={<Testimonials />} />
 
       </Routes>
 

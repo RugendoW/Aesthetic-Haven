@@ -4,6 +4,7 @@ import About from './About';
 import NewInStore from './NewInStore';
 import AimSection from './AimSection';
 import AllProducts from './AllProducts';
+import Testimonials from './Testimonials';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -84,6 +85,7 @@ const Header = () => {
         < NewInStore />
         < AimSection />
         < AllProducts />
+        < Testimonials />
       </div>
     </header>
   );
