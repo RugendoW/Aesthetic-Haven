@@ -5,6 +5,7 @@ import NewInStore from './NewInStore';
 import AimSection from './AimSection';
 import AllProducts from './AllProducts';
 import Testimonials from './Testimonials';
+import Footer from './Footer';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -43,14 +44,14 @@ const Header = () => {
       <nav className="absolute top-0 right-0 p-8 z-10">
         <ul className="flex space-x-10 text-lg font-medium">
           <li className="hover:text-pink-300 cursor-pointer">Home</li>
-          <li className="hover:text-pink-300 cursor-pointer" onclick={scrollToAbout}>About</li>
-          <li className="hover:text-pink-300 cursor-pointer" onclick={scrollToShop}>Shop</li>
+          <li className="hover:text-pink-300 cursor-pointer" onClick={scrollToAbout}>About</li>
+          <li className="hover:text-pink-300 cursor-pointer" onClick={scrollToShop}>Shop</li>
           <li className="hover:text-pink-300 cursor-pointer">Contact</li>
         </ul>
       </nav>
 
       {/* Header content */}
-      <div className="relative flex flex-col justify-center items-center text-center px-4 z-10 mt-16">
+      <div className="relative flex flex-col justify-center items-center text-center px-4  z-10 mt-16">
         <h1 className="text-5xl font-extrabold mb-4">Aesthetic Bliss</h1>
         <p className="max-w-xl text-lg mb-6 text-pink-100">
           Elevate your beauty and style with our exclusive collection of girly aesthetics and self-care essentials.
@@ -64,7 +65,7 @@ const Header = () => {
       </div>
 
       {/* Stats Section */}
-      <div className="relative z-10 flex flex-wrap justify-center gap-8 py-6 px-4 bg-white bg-opacity-30 backdrop-blur-md rounded-t-2xl">
+      <div className="relative z-10 flex flex-wrap justify-center gap-8 py-8 px-4 bg-white bg-opacity-30 backdrop-blur-md rounded-t-2xl">
         <div className="text-center text-gray-900 bg-white bg-opacity-70 p-8 rounded-xl shadow-lg shadow-pink-400 min-w-[140px]">
           <h3 className="text-3xl font-bold text-pink-600">5+</h3>
           <p className="text-sm font-medium">Years of Beauty</p>
@@ -86,6 +87,7 @@ const Header = () => {
         < AimSection />
         < AllProducts />
         < Testimonials />
+        <Footer />
       </div>
     </header>
   );

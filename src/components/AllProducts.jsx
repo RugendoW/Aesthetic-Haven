@@ -65,7 +65,7 @@ function AllProducts() {
             className="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-pink-100 transition z-10"
           >
             ←
-          </button> 
+          </button>
           <div
             ref={scrollRef}
             onScroll={handleScroll}
@@ -74,7 +74,7 @@ function AllProducts() {
             {products.map((p) => (
               <div
                 key={p.id}
-                className="min-w-[240px] sm:min-w-[260px] bg-white rounded-2xl shadow-md hover:shadow-lg transition p-4 relative snap-start"
+                className="min-w-[240px] sm:min-w-[260px] bg-pink rounded-2xl shadow-md hover:shadow-lg transition p-4 relative snap-start"
               >
                 <div className="overflow-hidden rounded-xl">
                   <img
@@ -127,32 +127,8 @@ function AllProducts() {
           ))}
         </div>
 
-        {/* Cart summary */}
-        <div className="mt-16 bg-white p-6 rounded-2xl shadow-md max-w-3xl mx-auto">
-          <h3 className="text-2xl font-bold text-pink-600 mb-4 text-center">
-            🛒 Cart Summary
-          </h3>
-          {cart.length === 0 ? (
-            <p className="text-gray-500 text-center">Your cart is empty</p>
-          ) : (
-            <ul className="space-y-3">
-              {cart.map((item) => (
-                <li
-                  key={item.id}
-                  className="flex justify-between border-b pb-2 text-gray-700"
-                >
-                  <span>
-                    {item.name} (x{item.qty})
-                  </span>
-                  <span className="text-pink-500 font-semibold">
-                    ${item.price * item.qty}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          )}
+       
         </div>
-      </div>
     </section>
   );
 }

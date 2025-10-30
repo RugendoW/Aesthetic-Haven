@@ -12,7 +12,7 @@ const CreateAccount = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-pink-50">
+    <div className="min-h-screen flex items-center justify-center bg-pink-50 py-16 px-4">
       <form
         onSubmit={handleCreateAccount}
         className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md"

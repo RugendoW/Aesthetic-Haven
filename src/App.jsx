@@ -8,10 +8,11 @@ import NewInStore from "./components/NewInStore";
 import AimSection from "./components/AimSection";
 import AllProducts from "./components/AllProducts";
 import Testimonials from "./components/Testimonials";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <Router>
+    <Router >
       <Routes>
         {/* Home page with header + hero */}
         <Route path="/" element={<Header />} />
@@ -36,6 +37,10 @@ function App() {
 
         {/*Testimonials page*/}
         <Route path="/" element={<Testimonials />} />
+
+        {/*Footer page*/}
+        <Route path="/" element={<Footer />} />
+
 
       </Routes>
 
