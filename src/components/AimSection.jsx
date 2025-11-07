@@ -4,7 +4,7 @@ const AimSection = () => {
   return (
     <section
       id="aim-section"
-      className="flex flex-col md:flex-row items-center justify-between py-20 px-8 bg-pink-50"
+      className="flex flex-col md:flex-row items-center justify-between py-20 px-8 "
     >
       {/* Left Side - Text */}
       <div className="md:w-1/2 text-gray-800">

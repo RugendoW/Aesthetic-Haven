@@ -7,19 +7,24 @@ import AllProducts from './AllProducts';
 import Testimonials from './Testimonials';
 import Footer from './Footer';
 
-const Header = () => {
-  const navigate = useNavigate();
-
-    const handleShopNow = () => {
-    navigate('/create-account');
-    };
-
-    const scrollToShop = () => {
-    const shopSection = document.getElementById('shop-section');
+function Header ({onLogout}){
+ const navigate = useNavigate();
+   
+ const handleLogout = () => {
+    localStorage.removeItem("token"); 
+    window.dispatchEvent(new Event("storage"));
+    if (onLogout) onLogout(); 
+    navigate("/login"); 
+   };
+   
+  const handleShopNow = () => {
+    const shopSection = document.getElementById("shop-section");
     if (shopSection) {
-      shopSection.scrollIntoView({ behavior: 'smooth' });
+      shopSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      console.warn("Shop section not found — check your NewInStore id");
     }
-    };
+  };
   
     const scrollToAbout = () => {
     const aboutSection = document.getElementById("about-section");
@@ -41,18 +46,18 @@ const Header = () => {
       <div className="absolute inset-0 "></div>
 
       {/* Navigation */}
-      <nav className="absolute top-0 right-0 p-8 z-10">
-        <ul className="flex space-x-10 text-lg font-medium">
+      <nav className="absolute fixed top-0 right-0 z-10">
+        <ul className="flex space-x-10 text-lg text-pink-600 p-4 font-medium justify-between">
           <li className="hover:text-pink-300 cursor-pointer">Home</li>
           <li className="hover:text-pink-300 cursor-pointer" onClick={scrollToAbout}>About</li>
-          <li className="hover:text-pink-300 cursor-pointer" onClick={scrollToShop}>Shop</li>
+          <li className="hover:text-pink-300 cursor-pointer" onClick={handleShopNow}>Shop</li>
           <li className="hover:text-pink-300 cursor-pointer">Contact</li>
         </ul>
       </nav>
-
+     
       {/* Header content */}
       <div className="relative flex flex-col justify-center items-center text-center px-4  z-10 mt-16">
-        <h1 className="text-5xl font-extrabold mb-4">Aesthetic Bliss</h1>
+        <h1 className="text-5xl font-extrabold mb-4">Aesthetic Haven</h1>
         <p className="max-w-xl text-lg mb-6 text-pink-100">
           Elevate your beauty and style with our exclusive collection of girly aesthetics and self-care essentials.
         </p>
@@ -62,6 +67,14 @@ const Header = () => {
         >
           Shop Now
         </button>
+
+        <button
+            onClick={handleLogout}
+            className="bg-gray-200 hover:bg-gray-300 text-pink-600 px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition-transform hover:scale-105"
+          >
+            Logout
+        </button>
+
       </div>
 
       {/* Stats Section */}
@@ -82,6 +95,7 @@ const Header = () => {
           <h3 className="text-3xl font-bold text-pink-600">100+</h3>
           <p className="text-sm font-medium">Unique Girl Styles</p>
         </div>
+        
         < About />
         < NewInStore />
         < AimSection />
@@ -91,6 +105,6 @@ const Header = () => {
       </div>
     </header>
   );
-}
+ }
 
 export default Header;

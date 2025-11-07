@@ -11,13 +11,13 @@ const NewInStore = () => {
   ];
 
   return (
-    <section id="shop-section" className="py-20 px-8 bg-pink-50 text-gray-800">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
+    <section id="shop-section" className="py-20 px-8 white-smoke text-gray-800">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
         
         {/* Left Text Section */}
         <div className="w-full md:w-1/3">
           <h2 className="text-3xl font-extrabold mb-4 text-pink-600">
-            New In <br /> Store Now 
+            New In Store Now 
           </h2>
           <p className="text-gray-600 mb-6">
             Discover our latest beauty essentials — fresh arrivals that bring your glow to life.

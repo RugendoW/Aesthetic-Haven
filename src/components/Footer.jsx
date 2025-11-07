@@ -8,16 +8,16 @@ const handleSubscribe = () => {
 
 export default function Footer() {
   return (
-    <footer className="mt-20">
+    <footer className="mt-20 max-w-8xl mx-auto">
       {/* Header Image + Newsletter Section */}
       <div
-        className="relative bg-cover bg-center text-center text-white py-16 px-4" 
+        className="relative bg-cover bg-center text-center max-w-8xl  text-white py-16 px-4" 
         style={{
           backgroundImage: `url(${headerImage})`,
         }}
       >
         <div className="absolute inset-0 bg-pink-900/50"></div> {/* soft overlay */}
-        <div className="relative z-10 max-w-2xl mx-auto px-4">
+        <div className="relative z-10 max-w-7xl  mx-auto px-4">
           <h2 className="text-3xl sm:text-4xl font-semibold">
             Get more discount<br />on your beauty order 💄
           </h2>
@@ -41,8 +41,8 @@ export default function Footer() {
       </div>
 
       {/* Footer Section */}
-      <div className="bg-gray-900 text-gray-300 py-12 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8">
+      <div className="bg-pink-900 text-gray-300 py-12 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8">
           <div>
             <h3 className="text-white font-bold text-lg mb-3">Aesthetic Haven</h3>
             <p className="text-sm text-gray-400">

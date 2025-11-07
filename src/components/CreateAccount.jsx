@@ -1,62 +1,88 @@
 // components/CreateAccount.jsx
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 
-const CreateAccount = () => {
-  const navigate = useNavigate();
+function CreateAccount({ onLogin }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isRegister, setIsRegister] = useState(false);
+  const [message, setMessage] = useState("");
 
-  const handleCreateAccount = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you’d normally save user info or call your backend
-    navigate("/login"); // move to login page next
+    setMessage("");
+
+    try {
+      const endpoint = isRegister
+        ? "http://localhost:5000/api/register"
+        : "http://localhost:5000/api/login";
+
+      const { data } = await axios.post(endpoint, {
+        email: email.trim().toLowerCase(),
+        password,
+      });
+
+      // If it's login and we get a token, log in
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+        onLogin?.(data.token);
+      }
+
+      setMessage(data.message || (isRegister ? "Account created!" : "Logged in!"));
+    } catch (err) {
+      setMessage(err.response?.data?.message || "Error occurred");
+    }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-pink-50 py-16 px-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-pink-50">
+      <h1 className="text-3xl font-bold mb-6 text-pink-600">Aesthetic Haven</h1>
       <form
-        onSubmit={handleCreateAccount}
-        className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md"
+        onSubmit={handleSubmit}
+        className="bg-white p-6 rounded-2xl shadow-lg w-80"
       >
-        <h2 className="text-2xl font-bold text-center text-pink-500 mb-6">
-          Create Your Account
-        </h2>
-
-        <input
-          type="text"
-          placeholder="Full Name"
-          className="w-full mb-4 px-4 py-2 border rounded-lg"
-          required
-        />
         <input
           type="email"
           placeholder="Email"
-          className="w-full mb-4 px-4 py-2 border rounded-lg"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full p-2 mb-3 border rounded-lg"
           required
+          autoComplete="email"
         />
         <input
           type="password"
           placeholder="Password"
-          className="w-full mb-6 px-4 py-2 border rounded-lg"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full p-2 mb-4 border rounded-lg"
           required
+          autoComplete={isRegister ? "new-password" : "current-password"}
+          minLength={8}
         />
 
         <button
           type="submit"
-          className="w-full bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg"
+          className="w-full bg-pink-500 text-white py-2 rounded-lg hover:bg-pink-600 transition"
         >
-          Create Account
+          {isRegister ? "Sign Up" : "Log In"}
         </button>
 
-        <button 
-          type="button"
-          onClick={() => navigate('/')}
-          className="w-full mt-4 bg-pink-300 hover:bg-pink-400 text-pink-800 py-2 rounded-lg"
-          >
-            Back to Home
-          </button>
+        <p
+          className="text-sm text-center mt-3 cursor-pointer text-pink-600"
+          onClick={() => {
+            setIsRegister(!isRegister);
+            setMessage("");
+          }}
+        >
+          {isRegister
+            ? "Already have an account? Log in"
+            : "Don't have an account? Sign up"}
+        </p>
+        <p className="text-center text-red-500 mt-2">{message}</p>
       </form>
     </div>
   );
-};
+}
 
 export default CreateAccount;
