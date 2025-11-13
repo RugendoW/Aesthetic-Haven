@@ -1,110 +1,79 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import Stats from './Stats'
 import About from './About';
 import NewInStore from './NewInStore';
 import AimSection from './AimSection';
 import AllProducts from './AllProducts';
 import Testimonials from './Testimonials';
+import AuthForm from './AuthForm';
 import Footer from './Footer';
 
-function Header ({onLogout}){
- const navigate = useNavigate();
-   
- const handleLogout = () => {
-    localStorage.removeItem("token"); 
-    window.dispatchEvent(new Event("storage"));
-    if (onLogout) onLogout(); 
-    navigate("/login"); 
-   };
-   
+const Header = () => {
   const handleShopNow = () => {
     const shopSection = document.getElementById("shop-section");
-    if (shopSection) {
-      shopSection.scrollIntoView({ behavior: "smooth" });
-    } else {
-      console.warn("Shop section not found — check your NewInStore id");
-    }
+    if (shopSection) shopSection.scrollIntoView({ behavior: "smooth" });
   };
-  
-    const scrollToAbout = () => {
+
+  const scrollToAbout = () => {
     const aboutSection = document.getElementById("about-section");
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: "smooth" });
-    }
-    };
+    if (aboutSection) aboutSection.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <header
-      className="relative h-100 bg-cover  bg-center bg-pink-100 text-white flex flex-col justify-between"
-      style={{ backgroundImage: "url(/aesthetic.png)",
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-       }}
-    >
-      {/* Overlay */}
-      <div className="absolute inset-0 "></div>
+    <div>
+      {/* Header Section */}
+      <header 
+      className="relative h-100 bg-cover   bg-center bg-pink-100  flex flex-col justify-between"
+        style={{
+          backgroundImage: 'url(/aesthetic.jpg)',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          
+        }}
+      >
+<nav className='absolute top-0 left-0 test-black-900 font-bold font-serif italic tracking-wide '>
+Aesthetic Haven
+</nav>
 
-      {/* Navigation */}
-      <nav className="absolute fixed top-0 right-0 z-10">
-        <ul className="flex space-x-10 text-lg text-pink-600 p-4 font-medium justify-between">
-          <li className="hover:text-pink-300 cursor-pointer">Home</li>
-          <li className="hover:text-pink-300 cursor-pointer" onClick={scrollToAbout}>About</li>
-          <li className="hover:text-pink-300 cursor-pointer" onClick={handleShopNow}>Shop</li>
-          <li className="hover:text-pink-300 cursor-pointer">Contact</li>
-        </ul>
-      </nav>
-     
-      {/* Header content */}
-      <div className="relative flex flex-col justify-center items-center text-center px-4  z-10 mt-16">
-        <h1 className="text-5xl font-extrabold mb-4">Aesthetic Haven</h1>
-        <p className="max-w-xl text-lg mb-6 text-pink-100">
-          Elevate your beauty and style with our exclusive collection of girly aesthetics and self-care essentials.
-        </p>
-        <button
-          onClick={handleShopNow}
-          className="bg-pink-400 hover:bg-pink-500 text-white px-8 py-3 rounded-full text-lg shadow-lg transition-transform hover:scale-105"
-        >
-          Shop Now
-        </button>
+        {/* Navigation */}
+        <nav className="absolute top-0 right-0 z-10">
+          <ul className="flex space-x-10 text-lg text-pink-600 p-4 font-medium justify-between">
+            <li className="hover:text-pink-300 cursor-pointer">Home</li>
+            <li className="hover:text-pink-300 cursor-pointer" onClick={scrollToAbout}>About</li>
+            <li className="hover:text-pink-300 cursor-pointer" onClick={handleShopNow}>Shop</li>
+            <li className="hover:text-pink-300 cursor-pointer">Contact</li>
+          </ul>
+        </nav>
 
-        <button
-            onClick={handleLogout}
-            className="bg-gray-200 hover:bg-gray-300 text-pink-600 px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition-transform hover:scale-105"
+        {/* Header content */}
+        <div className="relative flex flex-col justify-center items-center text-center px-4 z-10 mt-16">
+          <h1 className="text-5xl font-extrabold mb-4 text-black">Aesthetic Haven</h1>
+          <p className="max-w-xl text-lg mb-6 text-black italic font-bold">
+            Elevate your beauty and style with our exclusive collection of girly aesthetics and self-care essentials.
+          </p>
+          <button
+            onClick={handleShopNow}
+            className="bg-pink-400 hover:bg-pink-500 text-white px-8 py-3 rounded-full text-lg shadow-lg transition-transform hover:scale-105"
           >
-            Logout
-        </button>
+            Shop Now
+          </button>
+        </div>
+      </header>
 
-      </div>
-
-      {/* Stats Section */}
-      <div className="relative z-10 flex flex-wrap justify-center gap-8 py-8 px-4 bg-white bg-opacity-30 backdrop-blur-md rounded-t-2xl">
-        <div className="text-center text-gray-900 bg-white bg-opacity-70 p-8 rounded-xl shadow-lg shadow-pink-400 min-w-[140px]">
-          <h3 className="text-3xl font-bold text-pink-600">5+</h3>
-          <p className="text-sm font-medium">Years of Beauty</p>
-        </div>
-        <div className="text-center text-gray-900 bg-white bg-opacity-70 p-8 rounded-xl shadow-lg shadow-pink-400 min-w-[140px]">
-          <h3 className="text-3xl font-bold text-pink-600">30+</h3>
-          <p className="text-sm font-medium">Stores Nationwide</p>
-        </div>
-        <div className="text-center text-gray-900 bg-white bg-opacity-70 p-8 rounded-xl shadow-lg shadow-pink-400 min-w-[140px]">
-          <h3 className="text-3xl font-bold text-pink-600">15K+</h3>
-          <p className="text-sm font-medium">Aesthetic Items Sold</p>
-        </div>
-        <div className="text-center text-gray-900 bg-white bg-opacity-70 p-8 rounded-xl shadow-lg shadow-pink-400 min-w-[140px]">
-          <h3 className="text-3xl font-bold text-pink-600">100+</h3>
-          <p className="text-sm font-medium">Unique Girl Styles</p>
-        </div>
-        
-        < About />
-        < NewInStore />
-        < AimSection />
-        < AllProducts />
-        < Testimonials />
-        <Footer />
-      </div>
-    </header>
+      {/* Page Sections */}
+      <Stats />
+      <About />
+      <NewInStore />
+      <AimSection />
+      <AllProducts />
+      <Testimonials />
+      <AuthForm />
+      <Footer />
+    </div>
   );
- }
+};
+
 
 export default Header;
+

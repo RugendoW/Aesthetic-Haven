@@ -19,7 +19,7 @@ const NewInStore = () => {
           <h2 className="text-3xl font-extrabold mb-4 text-pink-600">
             New In Store Now 
           </h2>
-          <p className="text-gray-600 mb-6">
+          <p className="text-black mb-6">
             Discover our latest beauty essentials — fresh arrivals that bring your glow to life.
           </p>
           < button
@@ -27,7 +27,7 @@ const NewInStore = () => {
             const Section = document.getElementById("all-products");
             Section?.scrollIntoView({ behavior: "smooth" });
           }}
-            className="text-pink-500 font-medium hover:underline flex items-center gap-2"
+            className="text-pink-600 font-medium hover:underline flex items-center gap-2"
           >
             Check All →
           </button>

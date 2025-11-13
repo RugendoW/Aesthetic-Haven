@@ -53,7 +53,7 @@ export default function Testimonials() {
     <section className="flex flex-col md:flex-row items-center justify-center px-4 md:px-20 py-16 white-smoke transition-all duration-700 ease-in-out">
       {/* Left Side - Text */}
       <div className="w-full md:w-1/2 space-y-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+        <h2 className="text-2xl md:text-3xl font-bold text-pink-600">
           What People Are Saying About Us
         </h2>
 
@@ -64,12 +64,12 @@ export default function Testimonials() {
             className="w-14 h-14 rounded-full object-cover"
           />
           <div>
-            <h4 className="text-lg font-semibold text-gray-800">{name}</h4>
-            <p className="text-sm text-gray-500">{role}</p>
+            <h4 className="text-lg font-semibold text-black-800">{name}</h4>
+            <p className="text-sm text-black-500">{role}</p>
           </div>
         </div>
 
-        <p className="text-gray-600 text-lg leading-relaxed italic">
+        <p className="text-black-600 text-lg leading-relaxed italic">
           “{text}”
         </p>
 

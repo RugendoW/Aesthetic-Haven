@@ -22,7 +22,7 @@ function AllProducts() {
   const [cart, setCart] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const addToCart = (product) => {
+  const handleAddToCart = (product) => {
     const exists = cart.find((item) => item.id === product.id);
     if (exists) {
       setCart(
@@ -49,88 +49,61 @@ function AllProducts() {
     const index = Math.round((scrollLeft / (scrollWidth - clientWidth)) * (totalCards - 1));
     setActiveIndex(index);
   };
+ 
 
   return (
-    <section id="all-products" className="py-16 ">
-      <div className="max-w-7xl mx-auto px-4 text-center">
-        <h2 className="text-4xl font-bold text-gray-800 mb-2">All Products</h2>
-        <p className="text-gray-500 mb-10">
+    <section id="all-products" className="py-16">
+      <div className="px-4 text-center">
+        <h2 className="text-4xl font-bold text-pink-600 mb-2">All Products</h2>
+        <p className="text-black-600 mb-10">
           From soft pink tones to cozy textures — discover the latest aesthetic must-haves made to elevate your vibe.
         </p>
 
-        {/* Product Carousel */}
-        <div className="relative">
-          <button
-            onClick={() => scroll("left")}
-            className="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-pink-100 transition z-10"
-          >
-            ←
-          </button>
+         {/* Horizontal scroll container */}
+      <div className="grid grid-cols-4 md-grid-cols-4 gap-6 flex-nowrap space-x-6  overflow-x-auto py-4 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+        {products.map((product) => (
           <div
-            ref={scrollRef}
-            onScroll={handleScroll}
-            className="flex gap-6 overflow-x-auto scroll-smooth scrollbar-hide py-4 px-2 snap-x"
+            key={product.id}
+            className="flex-shrink-0 bg-white rounded-2xl shadow-lg w-60 p-4 "
           >
-            {products.map((p) => (
-              <div
-                key={p.id}
-                className="min-w-[240px] sm:min-w-[260px] bg-pink rounded-2xl shadow-md hover:shadow-lg transition p-4 relative snap-start"
-              >
-                <div className="overflow-hidden rounded-xl">
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                    className="w-full h-56 object-cover rounded-xl transform hover:scale-105 transition duration-300"
-                  />
-                </div>
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-48 object-cover rounded-xl mb-4"
+            />
+            <h3 className="font-bold text-lg">{product.name}</h3>
+            <p className="text-gray-500 line-through">${product.oldPrice}</p>
+            <p className="text-pink-500 font-semibold text-xl mb-2">${product.price}</p>
 
-                <div className="mt-4 text-left">
-                  <h3 className="text-lg font-semibold text-gray-800 truncate">
-                    {p.name}
-                  </h3>
-                  <div className="flex items-center gap-2 mt-1">
-                    <p className="text-pink-500 font-medium">${p.price}.00</p>
-                    <p className="text-gray-400 line-through text-sm">
-                      ${p.oldPrice}.00
-                    </p>
-                  </div>
-                </div>
-
-                {/* Add to Cart Button */}
-                <button
-                  onClick={() => addToCart(p)}
-                  className="absolute bottom-4 right-4 bg-pink-500 text-white w-10 h-10 rounded-full flex items-center justify-center text-lg hover:bg-pink-600 transition"
-                >
-                  +
-                </button>
-              </div>
-            ))}
+            {/* Add to Cart Button */}
+            <button
+              onClick={() => handleAddToCart(product)}
+              className="w-full bg-pink-500 text-white py-2 rounded-lg hover:bg-indigo-600 transition"
+            >
+              Add to Cart
+            </button>
           </div>
+        ))}
+      </div>
 
-          <button
-            onClick={() => scroll("right")}
-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-pink-100 transition z-10"
-          >
-            →
-          </button>
-        </div>
-
-        {/* Dots Pagination */}
-        <div className="flex justify-center items-center gap-2 mt-6">
-          {products.map((_, index) => (
-            <div
-              key={index}
-              className={`w-3 h-3 rounded-full ${
-                activeIndex === index ? "bg-gray-800" : "bg-gray-300"
-              }`}
-            ></div>
+       {/* Cart Horizontal Row */}
+      <div className="mt-8">
+        <h3 className="text-xl font-bold mb-4">Cart ({cart.length} items)</h3>
+        <div className="flex flex-row space-x-4 overflow-x-auto py-2 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+          {cart.map((item, index) => (
+            <div key={index} className="flex-shrink-0 w-44 bg-white p-3 rounded-lg shadow-md">
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-full h-24 object-cover rounded mb-2"
+              />
+            
+            </div>
           ))}
+       </div>
         </div>
-
-       
         </div>
     </section>
   );
 }
-export default AllProducts;
-
+export default AllProducts

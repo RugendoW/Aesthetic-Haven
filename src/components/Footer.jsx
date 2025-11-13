@@ -19,7 +19,7 @@ export default function Footer() {
         <div className="absolute inset-0 bg-pink-900/50"></div> {/* soft overlay */}
         <div className="relative z-10 max-w-7xl  mx-auto px-4">
           <h2 className="text-3xl sm:text-4xl font-semibold">
-            Get more discount<br />on your beauty order 💄
+            Get more discount<br />on your beauty order 
           </h2>
           <p className="text-gray-100 mt-3">
             Join our mailing list for exclusive skincare tips and beauty deals.
@@ -92,7 +92,7 @@ export default function Footer() {
         </div>
 
         <div className="text-center text-gray-500 mt-10 text-sm">
-          © {new Date().getFullYear()} Aesthetic Haven — All Rights Reserved 💕
+          © {new Date().getFullYear()} Aesthetic Haven — All Rights Reserved 
         </div>
       </div>
     </footer>
