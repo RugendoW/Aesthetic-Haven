@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 import cors from "cors";
 import dotenv from "dotenv"
 import User from "./models/User.js"
+import.meta.env.VITE_API_URL
 
 
 dotenv.config();
