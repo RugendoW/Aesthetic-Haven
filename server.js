@@ -15,7 +15,7 @@ app.use(express.json());
 // Allow your frontend (adjust port if your Vite/React port differs)
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: process.env.FRONTED_URL,
     methods:["GET","POST","PUT","DELETE"],
     credentials: true,
   })
@@ -84,5 +84,4 @@ app.post("/api/login", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
-
 app.listen(5000, () => console.log(" Server running on http://localhost:5000"));

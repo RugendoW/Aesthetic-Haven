@@ -16,7 +16,8 @@ export default function AuthForm() {
         ? "http://localhost:5000/api/login"
         : "http://localhost:5000/api/register";
 
-      const res = await axios.post(url, { email, password });
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, 
+        { email, password });
       setMessage(res.data.message || "Success ");
     } catch (err) {
       console.error(err);
