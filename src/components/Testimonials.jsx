@@ -50,7 +50,7 @@ export default function Testimonials() {
   const { name, role, image, text, photo } = testimonials[index];
 
   return (
-    <section className="flex flex-col md:flex-row items-center justify-center px-4 md:px-20 py-16 white-smoke transition-all duration-700 ease-in-out">
+    <section style={{ backgroundColor: 'pink-100' }} className="flex flex-col md:flex-row items-center justify-center px-4 md:px-20 py-16 white-smoke transition-all duration-700 ease-in-out">
       {/* Left Side - Text */}
       <div className="w-full md:w-1/2 space-y-6">
         <h2 className="text-2xl md:text-3xl font-bold text-pink-600">

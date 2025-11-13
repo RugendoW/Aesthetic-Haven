@@ -3,7 +3,7 @@ import React from 'react';
 const  About = () => {
 
   return (
-    <section id="about-section" className="flex flex-col md:flex-row items-center justify-center  py-16 px-6 bg-pink-50">
+    <section style={{ backgroundColor: 'bg-pink-300' }} id="about-section" className="flex flex-col md:flex-row items-center justify-center  py-16 px-6 ">
       {/* Left: Image */}
       <div className="w-full md:w-1/2 flex justify-center">
         <img

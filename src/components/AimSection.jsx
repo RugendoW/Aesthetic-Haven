@@ -3,6 +3,7 @@ import React from 'react';
 const AimSection = () => {
   return (
     <section
+       style={{ backgroundColor: 'pink-100' }}
       id="aim-section"
       className="flex flex-col md:flex-row items-center justify-between py-20 px-8 "
     >

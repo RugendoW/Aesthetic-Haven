@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import Stats from './Stats'
 import About from './About';
 import NewInStore from './NewInStore';
@@ -38,11 +39,12 @@ Aesthetic Haven
 
         {/* Navigation */}
         <nav className="absolute top-0 right-0 z-10">
-          <ul className="flex space-x-10 text-lg text-pink-600 p-4 font-medium justify-between">
-            <li className="hover:text-pink-300 cursor-pointer">Home</li>
-            <li className="hover:text-pink-300 cursor-pointer" onClick={scrollToAbout}>About</li>
-            <li className="hover:text-pink-300 cursor-pointer" onClick={handleShopNow}>Shop</li>
-            <li className="hover:text-pink-300 cursor-pointer">Contact</li>
+          <ul className="flex space-x-10 text-lg text-pink-200 p-4 font-medium justify-between">
+            <li className="hover:text-pink-400 cursor-pointer">Home</li>
+            <li className="hover:text-pink-400 cursor-pointer" onClick={scrollToAbout}>About</li>
+            <li className="hover:text-pink-400 cursor-pointer" onClick={handleShopNow}>Shop</li>
+            <li className="hover:text-pink-400 cursor-pointer">Contact</li>
+            <li><Link to="/dashboard" className='hover:text-pink-400 cursor-pointer'>Dashboard</Link></li>
           </ul>
         </nav>
 

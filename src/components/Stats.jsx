@@ -2,7 +2,7 @@
 
  const Stats = () =>{
     return(
-      <section className="w-full max-w-5xl mx-auto bg-pink-700 text-white rounded-2xl flex items-center justify-between p-6 md:p-10">
+      <section style={{backgroundcolor:"pink-100"}} className="w-full max-w-5xl mx-auto bg-pink-700 text-white rounded-2xl flex items-center justify-between p-6 md:p-10">
       
       <div className="flex flex-col items-center px-4">
         <h2 className="text-3xl font-bold">7+</h2>

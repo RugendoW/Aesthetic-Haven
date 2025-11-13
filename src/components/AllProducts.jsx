@@ -52,7 +52,7 @@ function AllProducts() {
  
 
   return (
-    <section id="all-products" className="py-16">
+    <section style={{ backgroundColor: 'pink-100' }}id="all-products" className="py-16">
       <div className="px-4 text-center">
         <h2 className="text-4xl font-bold text-pink-600 mb-2">All Products</h2>
         <p className="text-black-600 mb-10">

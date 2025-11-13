@@ -9,6 +9,7 @@ import AllProducts from "./components/AllProducts";
 import Testimonials from "./components/Testimonials";
 import AuthForm from "./components/AuthForm";
 import Footer from "./components/Footer";
+import Dashboard from "../pages/Dashboard";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
        
         {/* Home page with header + hero */}
         <Route path="/" element={<Header />} />
+
+        <Route path="/dashboard" element={<Dashboard />} />
 
         <Route path='/' element={<Stats />} />
 

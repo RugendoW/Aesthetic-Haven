@@ -11,7 +11,7 @@ const NewInStore = () => {
   ];
 
   return (
-    <section id="shop-section" className="py-20 px-8 white-smoke text-gray-800">
+    <section style={{ backgroundColor: 'pink-100' }}  id="shop-section" className="py-20 px-8 white-smoke text-gray-800">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
         
         {/* Left Text Section */}
