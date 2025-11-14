@@ -5,7 +5,6 @@ import jwt from "jsonwebtoken";
 import cors from "cors";
 import dotenv from "dotenv"
 import User from "./models/User.js"
-import.meta.env.VITE_API_URL
 
 
 dotenv.config();
@@ -16,7 +15,7 @@ app.use(express.json());
 // Allow your frontend (adjust port if your Vite/React port differs)
 app.use(
   cors({
-    origin: process.env.FRONTED_URL,
+    origin: "http://localhost:5174",
     methods:["GET","POST","PUT","DELETE"],
     credentials: true,
   })
