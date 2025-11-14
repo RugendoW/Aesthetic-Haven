@@ -16,7 +16,7 @@ export default function AuthForm() {
     try {
       const url = isLogin
         ? `${BASE_URL}/api/login`
-        : `${BASE_URL}/api/registe`;
+        : `${BASE_URL}/api/register`;
 
       const res = await axios.post( url, { email, password });
       setMessage(res.data.message || "Success ");
