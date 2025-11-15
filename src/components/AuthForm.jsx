@@ -8,15 +8,14 @@ export default function AuthForm() {
   const [message, setMessage] = useState("");
 
    const BASE_URL = "http://localhost:5000";
-   console.log("BASE_URL =", BASE_URL);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("Loading...");
 
     try {
       const url = isLogin
-        ? `${BASE_URL}/api/login`
-        : `${BASE_URL}/api/register`;
+        ? `http://localhost:5000/api/login`
+        : `http://localhost:5000/api/register`;
 
       const res = await axios.post( url, { email, password });
       setMessage(res.data.message || "Success ");

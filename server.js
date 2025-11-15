@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import cors from "cors";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 import User from "./models/User.js"
 
 
@@ -12,14 +12,13 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-// Allow your frontend (adjust port if your Vite/React port differs)
-app.use(
-  cors({
-    origin: "http://localhost:5174",
-    methods:["GET","POST","PUT","DELETE"],
-    credentials: true,
-  })
-);
+const FRONTEND_URL = "http://localhost:5173";
+
+app.use(cors({
+  origin: FRONTEND_URL,
+  credentials: true      // allow cookies/headers like Authorization
+}));
+
 const PORT = process.env.PORT || 5000;
 const MONGO_URL = process.env.MONGO_URL;
 const SECRET_KEY = process.env.SECRET_KEY;
