@@ -15,35 +15,16 @@ function App() {
   return (
     <BrowserRouter >
       <Routes>
-       
-        {/* Home page with header + hero */}
-        <Route path="/" element={<Header />} />
-
-        <Route path="/dashboard" element={<Dashboard />} />
-
-        <Route path='/' element={<Stats />} />
-
-        {/*About page*/}
-        <Route path="/" element={<About />} />
-
-        {/*Aim Section page*/}
-        <Route path="/" element={<AimSection />} />
-
-        {/*New In Store page*/}
-        <Route path="/" element={<NewInStore />} />
-
-        {/*All Products page*/}
-        <Route path="/" element={<AllProducts />} />
-
-        {/*Testimonials page*/}
-        <Route path="/" element={<Testimonials />} />
-
-        < Route path ="/" element={<AuthForm/>} />
-        
-        {/*footer page*/}
-        <Route path="/" element={<Footer />} />
-       
-
+        <Header />
+        <Dashboard />
+        <Stats />
+        <About />
+        <NewInStore />
+        <AimSection />
+        <AllProducts />
+        <Testimonials />
+        <AuthForm/>
+        <Footer />
      </Routes>
     </BrowserRouter>
   );
