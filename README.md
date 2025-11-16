@@ -3,7 +3,7 @@
 ---
 
 ## 🌐 Live Demo
-[http://localhost:5174/]
+https://aesthetic-haven.vercel.app/
 
 ---
 
